@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://telegram-mini-apps.github.io/reactjs-template",
+  "homepage": "https://github.com/marc1k3y/tma-cars",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "dev": "vite",
@@ -17,7 +17,6 @@
     "@telegram-apps/react-router-integration": "^1.0.0",
     "@telegram-apps/sdk-react": "^1.0.0",
     "@telegram-apps/telegram-ui": "^2.1.5",
-    "@tonconnect/ui-react": "^2.0.5",
     "eruda": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
