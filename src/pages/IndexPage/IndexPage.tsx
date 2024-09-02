@@ -13,6 +13,9 @@ export const IndexPage: FC = () => {
         <Link to='/init-data'>
           <Cell subtitle='User data, chat information, technical data'>Init Data</Cell>
         </Link>
+        <Link to='/clicker'>
+          <Cell subtitle='Clicker test'>Clicker</Cell>
+        </Link>
         <Link to='/launch-params'>
           <Cell subtitle='Platform identifier, Mini Apps version, etc.'>Launch Parameters</Cell>
         </Link>
