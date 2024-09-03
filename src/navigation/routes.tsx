@@ -1,10 +1,10 @@
 import type { ComponentType, JSX } from 'react';
 
-import { IndexPage } from '@/pages/IndexPage/IndexPage';
-import { InitDataPage } from '@/pages/InitDataPage/InitDataPage';
-import { LaunchParamsPage } from '@/pages/LaunchParamsPage/LaunchParamsPage.tsx';
-import { ThemeParamsPage } from '@/pages/ThemeParamsPage/ThemeParamsPage.tsx';
 import { ClickerPage } from '@/pages/clicker';
+import { GaragePage } from '@/pages/garage';
+import { FriendsPage } from '@/pages/friends';
+import { RatingPage } from '@/pages/rating';
+import { TasksPage } from '@/pages/tasks';
 
 interface Route {
   path: string;
@@ -14,9 +14,9 @@ interface Route {
 }
 
 export const routes: Route[] = [
-  { path: '/', Component: IndexPage },
-  { path: '/clicker', Component: ClickerPage },
-  { path: '/init-data', Component: InitDataPage, title: 'Init Data' },
-  { path: '/theme-params', Component: ThemeParamsPage, title: 'Theme Params' },
-  { path: '/launch-params', Component: LaunchParamsPage, title: 'Launch Params' },
+  { path: '/', Component: ClickerPage },
+  { path: '/garage', Component: GaragePage, title: "Garage" },
+  { path: '/friends', Component: FriendsPage, title: 'Friends' },
+  { path: '/rating', Component: RatingPage, title: 'Rating' },
+  { path: '/tasks', Component: TasksPage, title: 'Tasks' },
 ];

@@ -18,6 +18,7 @@ import {
 } from 'react-router-dom';
 
 import { routes } from '@/navigation/routes.tsx';
+import { BottomNavbar } from './BottomNavbar';
 
 export const App: FC = () => {
   const lp = useLaunchParams();
@@ -57,8 +58,9 @@ export const App: FC = () => {
       <Router location={location} navigator={reactNavigator}>
         <Routes>
           {routes.map((route) => <Route key={route.path} {...route} />)}
-          <Route path='*' element={<Navigate to='/'/>}/>
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
+        <BottomNavbar pathname={location.pathname} />
       </Router>
     </AppRoot>
   );
