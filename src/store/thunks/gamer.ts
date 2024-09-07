@@ -3,8 +3,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const authThunk = createAsyncThunk(
   "gamer/auth",
-  async (tgId: string) => {
+  async (tgId: string, thunkAPI) => {
     const response = await authAPI(tgId);
+    if (!response.token) throw new Error("token not found");
+    localStorage.setItem("token", response.token);
+    thunkAPI.dispatch(requestDataThunk());
     return response;
   },
 );

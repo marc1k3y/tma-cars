@@ -15,6 +15,7 @@ const gamerSlice = createSlice({
   name: "gamer_slice",
   initialState,
   extraReducers: (b) => {
+    // @ts-ignore
     b.addCase(requestDataThunk.fulfilled, (state, action) => {
       const gamer: GamerIE = action.payload;
       const { clicks, coins, cpc, cps, upgrades, last_ts } = gamer;
