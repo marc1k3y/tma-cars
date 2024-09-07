@@ -3,6 +3,8 @@ import { type FC, useEffect } from 'react';
 
 import { App } from '@/components/App.tsx';
 import { ErrorBoundary } from '@/components/ErrorBoundary.tsx';
+import { Provider } from 'react-redux';
+import { store } from '@/store';
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
@@ -30,9 +32,11 @@ const Inner: FC = () => {
   }, [debug]);
 
   return (
-    <SDKProvider acceptCustomStyles debug={debug}>
-      <App />
-    </SDKProvider>
+    <Provider store={store}>
+      <SDKProvider acceptCustomStyles debug={debug}>
+        <App />
+      </SDKProvider>
+    </Provider>
   );
 };
 

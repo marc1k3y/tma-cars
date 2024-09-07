@@ -1,0 +1,1 @@
+export const NODEJS_HOST = "https://tmaserver.online";
