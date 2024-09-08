@@ -1,4 +1,5 @@
 import { $authHost, $host } from "@/shared/service/http";
+import { UpgradeByIdIE } from "@/shared/types";
 
 export const authAPI = async (tgId: string) => {
   try {
@@ -18,9 +19,9 @@ export const requestDataAPI = async () => {
   }
 }
 
-export const upgradeByIdAPI = async (upgradeId: string) => {
+export const upgradeByIdAPI = async (reqData: UpgradeByIdIE) => {
   try {
-    const { data } = await $authHost.get("upgrades/upgradeById", { params: { upgradeId } });
+    const { data } = await $authHost.get("upgrades/upgradeById", { params: reqData });
     return data;
   } catch (e) {
     return console.error(e);

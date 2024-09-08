@@ -1,5 +1,7 @@
 import { authAPI, requestDataAPI, upgradeByIdAPI } from "@/api/gamer";
+import { UpgradeByIdIE } from "@/shared/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { upgradeInc } from "../slices/gamer";
 
 export const authThunk = createAsyncThunk(
   "gamer/auth",
@@ -22,8 +24,9 @@ export const requestDataThunk = createAsyncThunk(
 
 export const upgradeByIdThunk = createAsyncThunk(
   "upgrades/upgradeById",
-  async (upgradeId: string) => {
-    const response = await upgradeByIdAPI(upgradeId);
+  async (reqData: UpgradeByIdIE, thunkAPI) => {
+    const response = await upgradeByIdAPI(reqData);
+    if (response.updated === true) thunkAPI.dispatch(upgradeInc(reqData))
     return response;
   },
 );
