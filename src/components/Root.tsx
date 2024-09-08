@@ -1,4 +1,7 @@
-import { SDKProvider, useLaunchParams } from '@telegram-apps/sdk-react';
+import {
+  SDKProvider,
+  // useLaunchParams
+} from '@telegram-apps/sdk-react';
 import { type FC, useEffect } from 'react';
 
 import { App } from '@/components/App.tsx';
@@ -22,7 +25,8 @@ const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
 );
 
 const Inner: FC = () => {
-  const debug = useLaunchParams().startParam === 'debug';
+  const debug = true;
+  // const debug = useLaunchParams().startParam === 'debug';
 
   // Enable debug mode to see all the methods sent and events received.
   useEffect(() => {

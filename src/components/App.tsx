@@ -19,9 +19,8 @@ import {
 
 import { routes } from '@/navigation/routes.tsx';
 import { BottomNavbar } from './BottomNavbar';
-import { authAPI } from '@/api/gamer';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { requestDataThunk } from '@/store/thunks/gamer';
+import { authThunk } from '@/store/thunks/gamer';
 
 export const App: FC = () => {
   const lp = useLaunchParams();
@@ -33,7 +32,7 @@ export const App: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    authAPI(String(lp.initData?.user?.id)).then(() => dispatch(requestDataThunk()))
+    dispatch(authThunk(String(lp.initData?.user?.id)));
   }, [lp.initData?.user?.id]);
 
   useEffect(() => {

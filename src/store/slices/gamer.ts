@@ -19,8 +19,12 @@ const gamerSlice = createSlice({
     b.addCase(requestDataThunk.fulfilled, (state, action) => {
       const gamer: GamerIE = action.payload;
       const { clicks, coins, cpc, cps, upgrades, last_ts } = gamer;
-      const updatedState = { clicks, coins, cpc, cps, upgrades, last_ts };
-      state = updatedState;
+      state.clicks = clicks;
+      state.coins = coins;
+      state.cpc = cpc;
+      state.cps = cps;
+      state.upgrades = upgrades;
+      state.last_ts = last_ts;
     });
   },
   reducers: {}
