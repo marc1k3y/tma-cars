@@ -19,7 +19,7 @@ import {
 
 import { routes } from '@/navigation/routes.tsx';
 import { BottomNavbar } from './BottomNavbar';
-import { useAppDispatch, useAppSelector } from '@/store';
+import { useAppDispatch } from '@/store';
 import { authThunk } from '@/store/thunks/gamer';
 
 export const App: FC = () => {
@@ -28,7 +28,6 @@ export const App: FC = () => {
   const themeParams = useThemeParams();
   const viewport = useViewport();
 
-  const { clicks, coins, cpc, cps, upgrades, last_ts } = useAppSelector((state) => state.gamer);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -69,7 +68,6 @@ export const App: FC = () => {
           {routes.map((route) => <Route key={route.path} {...route} />)}
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
-        {JSON.stringify({ clicks, coins, cpc, cps, upgrades, last_ts })}
         <BottomNavbar pathname={location.pathname} />
       </Router>
     </AppRoot>

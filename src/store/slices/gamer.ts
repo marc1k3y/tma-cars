@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { GamerIE } from "@/shared/types";
+import { GamerIE, UpgradeCategoriesType } from "@/shared/types";
 import { requestDataThunk } from "../thunks/gamer";
 
 const initialState: GamerIE = {
@@ -27,7 +27,15 @@ const gamerSlice = createSlice({
       state.last_ts = last_ts;
     });
   },
-  reducers: {}
+  reducers: {
+    upgradeInc(state, action) {
+      const { category, upgradeId } = action.payload;
+      state.upgrades[category as UpgradeCategoriesType].map((item, i) => (
+        item.id === upgradeId && ++state.upgrades[category as UpgradeCategoriesType][i]["level"]
+      ))
+    }
+  }
 });
 
 export default gamerSlice.reducer;
+export const { upgradeInc } = gamerSlice.actions;
